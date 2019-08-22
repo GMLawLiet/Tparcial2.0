@@ -1,0 +1,13 @@
+
+class CJuego {
+private:
+
+
+
+public:
+
+
+
+
+
+};
