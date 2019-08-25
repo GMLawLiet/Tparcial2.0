@@ -6,6 +6,7 @@ private:
 	int X, Y;
 	int Ancho, Largo;
 	int dX, dY;
+
 public:
 	CMovimiento();
 	CMovimiento(int X, int Y, int Ancho, int Largo, int dX, int dY);
@@ -22,10 +23,13 @@ public:
 	void Set_dX(int dX);
 	int Get_dY();
 	void Set_dY(int dY);
+
+
 };
 
 CMovimiento::CMovimiento()
 {
+
 }
 
 CMovimiento::CMovimiento(int X, int Y, int Ancho, int Largo, int dX, int dY)
