@@ -27,6 +27,7 @@ public:
 	void Dibujar(Graphics^g , Bitmap^imgPersonaje);
 	void Set_Movimiento(TypeMovimiento TipoMovimiento);
 	
+
 	
 	int Get_X();
 	int Get_Y();
