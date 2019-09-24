@@ -19,8 +19,6 @@ private:
 	vector<CMovimiento*>* arrMovimiento;
 	TypeMovimiento TipoMovimiento;
 
-
-
 public:
 	CPersonaje(int x, int y);
 	~CPersonaje();
