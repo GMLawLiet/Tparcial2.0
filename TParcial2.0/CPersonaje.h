@@ -15,6 +15,7 @@ class CPersonaje {
 private:
 	int X, Y;
 	int indice;
+	int direccion;
 	vector<CMovimiento*>* arrMovimiento;
 	TypeMovimiento TipoMovimiento;
 
@@ -27,8 +28,9 @@ public:
 	void Dibujar(Graphics^g , Bitmap^imgPersonaje);
 	void Set_Movimiento(TypeMovimiento TipoMovimiento);
 	
-
+	void Mover(Keys Tecla);
 	
+
 	int Get_X();
 	int Get_Y();
 	int Get_Ancho();
@@ -42,10 +44,10 @@ CPersonaje::CPersonaje(int X, int Y) {
 	//inicializacion 
 	this->X = X;
 	this->Y = Y;
+	this->direccion = 1;
 	this->indice = 0;
 	this->arrMovimiento = new vector<CMovimiento*>();
 	Set_Movimiento(TypeMovimiento::Estatico);
-
 
 }
 
@@ -58,14 +60,16 @@ void CPersonaje::Dibujar(Graphics^g, Bitmap^imgPersonaje) {
 	Rectangle Origen = Rectangle(arrMovimiento->at(indice)->Get_X(),
 		arrMovimiento->at(indice)->Get_Y(),
 		arrMovimiento->at(indice)->Get_Ancho(),
-		arrMovimiento->at(indice)->Get_Largo()   );
+		arrMovimiento->at(indice)->Get_Largo());
 
 	Rectangle Destino = Rectangle(X,arrMovimiento->at(indice)->Get_Largo(),
-		arrMovimiento->at(indice)->Get_Ancho(),
-		arrMovimiento->at(indice)->Get_Largo()   );
-
+		direccion*arrMovimiento->at(indice)->Get_Ancho(),
+		arrMovimiento->at(indice)->Get_Largo());
+	
 	g->DrawImage(imgPersonaje, Destino, Origen, GraphicsUnit::Pixel);
-
+	
+	
+	X += (direccion*arrMovimiento->at(indice)->Get_dX());
 
 	// para el efecto estatico cuando no se ejecuta ningun key event
 
@@ -77,9 +81,7 @@ void CPersonaje::Dibujar(Graphics^g, Bitmap^imgPersonaje) {
 	}
 	else
 		indice++;
-
-
-
+	
 }
 
 void CPersonaje::Set_Movimiento(TypeMovimiento TipoMovimiento) {
@@ -110,8 +112,28 @@ void CPersonaje::Set_Movimiento(TypeMovimiento TipoMovimiento) {
 
 	}
 	
+}
+
+void CPersonaje::Mover(Keys Tecla) {
+	
+	switch (Tecla)
+	{
+	case Keys::Left:
+		indice = 0;
+		direccion = -1;
+		Set_Movimiento(TypeMovimiento::Movimiento);
+		break;
+
+	case Keys::Right:
+		indice = 0;
+		direccion = 1;
+		Set_Movimiento(TypeMovimiento::Movimiento);
+		break;
+
+	}
 
 }
+
 
 int CPersonaje::Get_X(){
 	return this->X;

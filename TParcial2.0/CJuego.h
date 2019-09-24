@@ -11,7 +11,7 @@ public:
 
 	void Dibujar(Graphics^g, Bitmap^imgPersonaje);
 	void Set_Movimiento(TypeMovimiento TipoMovimiento);
-
+	void MoverPersonaje(Keys Tecla);
 
 
 };
@@ -31,6 +31,9 @@ void CJuego::Dibujar(Graphics^g, Bitmap^imgPersonaje) {
 
 	objPersonaje->Dibujar(g, imgPersonaje);
 
+}
+void CJuego::MoverPersonaje(Keys Tecla) {
+	objPersonaje->Mover(Tecla);
 }
 
 

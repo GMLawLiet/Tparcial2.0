@@ -100,9 +100,11 @@ namespace TParcial20 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1102, 676);
 			this->Controls->Add(this->PcBoxPersonaje);
+			this->KeyPreview = true;
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PcBoxPersonaje))->EndInit();
 			this->ResumeLayout(false);
 
@@ -122,10 +124,8 @@ namespace TParcial20 {
 		// por si algun sprite tiene color en la parte trasera 
 		imgPersonaje->MakeTransparent(imgPersonaje->GetPixel(0, 0));
 
-
-
-
 	}
+
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 		// timer 
 		buffer->Graphics->Clear(this->BackColor);
@@ -134,12 +134,16 @@ namespace TParcial20 {
 
 		buffer->Render(g);
 	}
+	private: System::Void MyForm_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+		objJuego->MoverPersonaje(e->KeyCode);
 
-
-	private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 
+	private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
 
+
+	}
+	
 
 	};
 
