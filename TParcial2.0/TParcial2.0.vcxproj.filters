@@ -45,5 +45,8 @@
     <Text Include="Estatico.txt">
       <Filter>Archivos de recursos</Filter>
     </Text>
+    <Text Include="Movimiento.txt">
+      <Filter>Archivos de recursos</Filter>
+    </Text>
   </ItemGroup>
 </Project>

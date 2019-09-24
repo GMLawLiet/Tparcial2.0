@@ -3,7 +3,7 @@
 #include<vector>
 #include<stdio.h>
 
-enum TypeMovimiento {Estatico};
+enum TypeMovimiento {Estatico,Movimiento};
 
 using namespace std;
 using namespace System;
@@ -93,7 +93,7 @@ void CPersonaje::Set_Movimiento(TypeMovimiento TipoMovimiento) {
 	switch(TipoMovimiento)
 	{
 	case TypeMovimiento::Estatico: strcpy(Archivo, "Estatico.txt"); break;
-
+	case TypeMovimiento::Movimiento: strcpy(Archivo, "Movimiento.txt"); break;
 
 	}
 

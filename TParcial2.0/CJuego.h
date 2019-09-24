@@ -1,7 +1,6 @@
 
 #include"CPersonaje.h"
 
-
 class CJuego {
 private:
 	CPersonaje* objPersonaje;
@@ -31,9 +30,6 @@ void CJuego::Set_Movimiento(TypeMovimiento TipoMovimiento) {
 void CJuego::Dibujar(Graphics^g, Bitmap^imgPersonaje) {
 
 	objPersonaje->Dibujar(g, imgPersonaje);
-
-
-
 
 }
 
